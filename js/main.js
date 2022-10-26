@@ -1,3 +1,3 @@
-import {getPictures} from './utils.js';
+import {getPictures} from './data';
 
 getPictures();
