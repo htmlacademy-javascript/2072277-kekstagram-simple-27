@@ -11,7 +11,7 @@ const SCALE_DEFAULT = 100;
 const sizeImage = (value = SCALE_DEFAULT) => {
   image.style.transform = `scale(${value / 100})`;
   scaleInput.value = `${value}%`;
-}
+};
 
 const smallerButtonClickHandler = () => {
   const currentValue = parseInt(scaleInput.value, 10);
@@ -29,11 +29,11 @@ const biggerButtonClickHandler = () => {
     newValue = MAX_SCALE;
   }
   sizeImage(newValue);
-}
+};
 
 const resetScale = () => {
   sizeImage();
-}
+};
 
 smallerButton.addEventListener('click', smallerButtonClickHandler);
 biggerButton.addEventListener('click', biggerButtonClickHandler);
