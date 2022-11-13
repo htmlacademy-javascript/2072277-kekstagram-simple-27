@@ -1,4 +1,5 @@
 import { resetScale } from './img-size.js';
+import { resetEffects } from './effects.js';
 
 const form = document.querySelector('.img-upload__form'); // форма загрузки новой фотки на сайт
 const overlay = document.querySelector('.img-upload__overlay'); // форма редактирования загруженной фотки на сайт
@@ -16,6 +17,7 @@ const showModal = () => {
 const hideModal = () => {
   form.reset(); // возвращает форму к изначальному состоянию
   resetScale();
+  resetEffects();
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onEscKeyDown);
