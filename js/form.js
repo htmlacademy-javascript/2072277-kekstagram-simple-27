@@ -1,5 +1,7 @@
 import { resetScale } from './img-size.js';
 import { resetEffects } from './effects.js';
+import { sendData } from './api.js';
+import { showAlert, onSuccess } from './utils.js';
 
 const form = document.querySelector('.img-upload__form'); // форма загрузки новой фотки на сайт
 const overlay = document.querySelector('.img-upload__overlay'); // форма редактирования загруженной фотки на сайт
@@ -44,8 +46,15 @@ const onFileInputChange = () => {
 
 const onFormSubmit = (evt) => {
   evt.preventDefault();
+  sendData(onSuccess, showAlert, new FormData(form)); // заглушка. Потом эту функцию нужно будет изменить на https://up.htmlacademy.ru/profession/frontender/14/javascript/27/project/kekstagram-simple#kekstagram-simple-3-4
 };
 
 fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancelButtonClick);
-form.addEventListener('submit', onFormSubmit);
+const imgUploadSubmit = document.querySelector('.img-upload__submit');
+
+imgUploadSubmit.addEventListener('click', onFormSubmit);
+
+// сделать так чтобы выходило сообщение об успехе доп функции. Две функции: одна вызов закрытия формы, вторая вывод сообщения об успехе отправки.
+
+export { hideModal };

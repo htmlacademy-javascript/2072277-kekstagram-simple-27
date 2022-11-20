@@ -1,4 +1,4 @@
-// Утилиты - инструменты/вспомогательные функции.
+// import { hideModal } from './form.js';
 
 const checkStringLength = (string, length) => string.length <= length;
 
@@ -15,4 +15,30 @@ const getRandomPositiveInteger = (a, b) => { // функция по генера
 const getRandomArrayElement = (array) =>
   array[getRandomPositiveInteger(0, array.length - 1)];
 
-export {checkStringLength, getRandomPositiveInteger, getRandomArrayElement};
+const onSuccessButtonClick = () => {
+  // hideModal();
+  const tmplCancel = document.querySelector('.success');
+  tmplCancel.remove('');
+};
+
+const onSuccess = () => {
+  const successContainer = document.createElement('div');
+  const tmpl = document.querySelector('#success');
+  successContainer.append(tmpl.content.cloneNode(true));
+  document.body.append(successContainer);
+
+  const successButton = document.querySelector('.success__button');
+  successButton.addEventListener('click', onSuccessButtonClick);
+};
+
+// const onError
+
+const showAlert = () => {
+  const errorContainer = document.createElement('div');
+  const tmpl = document.querySelector('#error');
+  errorContainer.append(tmpl.content.cloneNode(true));
+
+  document.body.append(errorContainer);
+};
+
+export {checkStringLength, getRandomPositiveInteger, getRandomArrayElement, showAlert, onSuccess};
