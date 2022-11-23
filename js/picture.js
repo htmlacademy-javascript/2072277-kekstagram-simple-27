@@ -4,7 +4,6 @@ const pictureTemplate = document
   .querySelector('.picture');
 const container = document.querySelector('.container');
 
-// функция для создания картинок других пользователей
 const createPicture = (data) => {
   const { comments, description, likes, url } = data;
   const picture = pictureTemplate.cloneNode(true);
@@ -13,10 +12,6 @@ const createPicture = (data) => {
   picture.querySelector('.picture__img').alt = description;
   picture.querySelector('.picture__comments').textContent = comments.length;
   picture.querySelector('.picture__likes').textContent = likes;
-
-  picture.addEventListener('click', () => {
-    // обработчик клика, который открывает большую картинку;
-  });
 
   return picture;
 };
