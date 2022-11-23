@@ -1,38 +1,12 @@
-const PICTURES_COUNT = 25; // количество фотографий, которое нужно сгенирировать
+const PICTURES_COUNT = 25;
 
-const AVATARS_COUNT = 6; // количество аватарок
+const AVATARS_COUNT = 6;
 
-const likesCount = { // количество лайков от мин к макс
+const likesCount = {
   min: 15,
   max: 200,
 };
 
 const MAX_COMMENTS_COUNT = 20;
 
-const commentLines = [
-  'Всё отлично!',
-  'В целом всё неплохо. Но не всё.',
-  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
-  'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
-  'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
-  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
-];
-
-const discription = [
-  'Описание-1',
-  'Описание-2',
-  'Описание-3',
-  'Описание-4',
-  'Описание-5',
-];
-
-const names = [
-  'Андрей',
-  'Женя',
-  'Настя',
-  'Коля',
-  'Петя',
-  'Вася',
-];
-
-export {PICTURES_COUNT, AVATARS_COUNT, likesCount, MAX_COMMENTS_COUNT, commentLines, discription, names};
+export {PICTURES_COUNT, AVATARS_COUNT, likesCount, MAX_COMMENTS_COUNT};

@@ -55,7 +55,7 @@ const EFFECTS = [
 const EFFECT_DEFAULT = EFFECTS[0];
 let chosenEffect = EFFECT_DEFAULT;
 
-const isDefault = () => chosenEffect === EFFECT_DEFAULT; // проверяет соответствует ли chosenEffect эффекту по умолчанию
+const isDefault = () => chosenEffect === EFFECT_DEFAULT;
 
 const updateSlider = () => {
   sliderElement.classList.remove('hidden');
@@ -69,7 +69,7 @@ const updateSlider = () => {
   });
 
   if (isDefault()) {
-    sliderElement.classList.add('hidden'); // если выполняется isDefault, то sliderElement добавляется класс hidden. Это джелается ,чтобы на оригинальной картинке не было слайдера
+    sliderElement.classList.add('hidden');
   }
 };
 
@@ -99,7 +99,6 @@ const resetEffects = () => {
   updateSlider();
 };
 
-// обращение к глобальному объекту noUiSlider и применение метода .create(то есть, создаём его) и первым аргументом передаётся то, где нужно создать этот слайдер. То есть, прикрепляем его к переменной sliderElement
 noUiSlider.create(sliderElement, {
   range: {
     min: EFFECT_DEFAULT.min,
