@@ -3,12 +3,12 @@ import { resetEffects } from './effects.js';
 import { sendData } from './api.js';
 import { showAlert, onSuccess } from './utils.js';
 
-const form = document.querySelector('.img-upload__form'); // форма загрузки новой фотки на сайт
-const overlay = document.querySelector('.img-upload__overlay'); // форма редактирования загруженной фотки на сайт
+const form = document.querySelector('.img-upload__form');
+const overlay = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
-const cancelButton = document.querySelector('#upload-cancel'); // кнопка крестик, закрывающая форму загрузки фоток
+const cancelButton = document.querySelector('#upload-cancel');
 const fileField = document.querySelector('#upload-file');
-const commentField = document.querySelector('.text__description'); // комментарии
+const commentField = document.querySelector('.text__description');
 
 const showModal = () => {
   overlay.classList.remove('hidden');
@@ -17,7 +17,7 @@ const showModal = () => {
 };
 
 const hideModal = () => {
-  form.reset(); // возвращает форму к изначальному состоянию
+  form.reset();
   resetScale();
   resetEffects();
   overlay.classList.add('hidden');
@@ -26,10 +26,13 @@ const hideModal = () => {
 };
 
 const isTextFieldFocused = () =>
-  document.activeElement === commentField; // когда в поле комментов стоит фокус
-// создать переменную, в которой будет храниться активный  элемент. Повесить обработчик на фокус. Как только фокус произойдёт, записать активный элемент в переменную. В обработчике onEscKeyDown проверить равен ли акт элемент полю с комментарием
+  document.activeElement === commentField;
 
 function onEscKeyDown(evt) {
+  const errorMessege = document.querySelector('.error');
+  if (errorMessege) {
+    return;
+  }
   if (evt.key === 'Escape' && !isTextFieldFocused()) {
     evt.preventDefault();
     hideModal();
@@ -46,15 +49,11 @@ const onFileInputChange = () => {
 
 const onFormSubmit = (evt) => {
   evt.preventDefault();
-  sendData(onSuccess, showAlert, new FormData(form)); // заглушка. Потом эту функцию нужно будет изменить на https://up.htmlacademy.ru/profession/frontender/14/javascript/27/project/kekstagram-simple#kekstagram-simple-3-4
+  sendData(onSuccess, showAlert, new FormData(form));
 };
 
 fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancelButtonClick);
-const imgUploadSubmit = document.querySelector('.img-upload__submit');
-
-imgUploadSubmit.addEventListener('click', onFormSubmit);
-
-// сделать так чтобы выходило сообщение об успехе доп функции. Две функции: одна вызов закрытия формы, вторая вывод сообщения об успехе отправки.
+form.addEventListener('submit', onFormSubmit);
 
 export { hideModal };

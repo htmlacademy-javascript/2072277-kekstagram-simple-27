@@ -16,25 +16,18 @@ const getData = (onSuccess, onError) => {
 
 const sendData = (onSuccess, showAlert, data) => {
   fetch(
-    'https://27.javascript.pages.academy/kekstagram-simple',
+    'https://27.javascript.pages.academy/kekstagram-simple1',
     {
       method: 'POST',
       body: data,
-      // headers: {
-      //   "content-type": "multipart/form-data",
-      //   "Access-Control-Allow-Origin": "*"
-      // }
     },
   )
     .then((response) => { if (response.ok) {
-      return response.json();
+      onSuccess();
     } else {
       showAlert();
     }
 
-    })
-    .then(() => {
-      onSuccess();
     })
     .catch(() => {
       showAlert();
