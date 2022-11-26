@@ -9,8 +9,8 @@ const getData = (onSuccess, onError) => {
     .then((data) => {
       onSuccess(data);
     })
-    .catch((err) => {
-      onError(err);
+    .catch((error) => {
+      onError(error.message);
     });
 };
 

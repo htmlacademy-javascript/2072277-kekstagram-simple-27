@@ -1,7 +1,7 @@
 import { resetScale } from './img-size.js';
 import { resetEffects } from './effects.js';
 import { sendData } from './api.js';
-import { showAlert, onSuccess } from './utils.js';
+import { showAlert, onSuccess, onEscKeyDown } from './utils.js';
 
 const form = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
@@ -25,20 +25,6 @@ const hideModal = () => {
   document.removeEventListener('keydown', onEscKeyDown);
 };
 
-const isTextFieldFocused = () =>
-  document.activeElement === commentField;
-
-function onEscKeyDown(evt) {
-  const errorMessege = document.querySelector('.error');
-  if (errorMessege) {
-    return;
-  }
-  if (evt.key === 'Escape' && !isTextFieldFocused()) {
-    evt.preventDefault();
-    hideModal();
-  }
-}
-
 const onCancelButtonClick = () => {
   hideModal();
 };
@@ -56,4 +42,4 @@ fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancelButtonClick);
 form.addEventListener('submit', onFormSubmit);
 
-export { hideModal };
+export { hideModal, commentField };
